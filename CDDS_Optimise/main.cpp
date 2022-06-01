@@ -29,8 +29,8 @@ int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 800;
-    int screenHeight = 450;
+    int screenWidth = 1600;         /* 800 */
+    int screenHeight = 900;         /* 450 */
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
     Critter critters[1000]; 
 
     // create some critters
-    const int CRITTER_COUNT = 50;
+    const int CRITTER_COUNT = 7;         /* 50 */
     const int MAX_VELOCITY = 80;
 
     for (int i = 0; i < CRITTER_COUNT; i++)
@@ -68,6 +68,7 @@ int main(int argc, char* argv[])
 
     float timer = 1;
     Vector2 nextSpawnPos = destroyer.GetPosition();
+
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
