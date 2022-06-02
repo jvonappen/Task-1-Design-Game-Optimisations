@@ -19,8 +19,8 @@ public:
 	DoubleLinkedList();
 	~DoubleLinkedList();
 
-	void pushFront(int newData);		//- add a new value to the front of the list 
-	void pushBack(int newData);				//- add a new value to the end of the list
+	void pushFront(int newData);						//- add a new value to the front of the list 
+	void pushBack(int newData);							//- add a new value to the end of the list
 	void insert(Node* previous, int newData);			//- add a new value one-past the specified iterator location
 	auto begin();										//- return an iterator to the first element
 	auto end();											//– return an iterator to a null element
@@ -33,6 +33,8 @@ public:
 	auto popFront();									//– remove the first element
 	auto empty();										//– return a Boolean, true if the list is empty, false otherwise
 	auto clear();										//– remove all elements from the list
+
+	/* Need to add Sorting */
 
 
 
