@@ -19,8 +19,8 @@ public:
 	DoubleLinkedList();
 	~DoubleLinkedList();
 
-	int pushFront(struct Node** head, int newData);		//- add a new value to the front of the list 
-	int pushBack(Node** tail, int newData);				//- add a new value to the end of the list
+	void pushFront(struct Node** head, int newData);		//- add a new value to the front of the list 
+	void pushBack(Node** tail, int newData);				//- add a new value to the end of the list
 	void insert(Node* previous, int newData);			//- add a new value one-past the specified iterator location
 	auto begin();										//- return an iterator to the first element
 	auto end();											//– return an iterator to a null element

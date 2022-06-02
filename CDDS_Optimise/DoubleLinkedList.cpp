@@ -9,7 +9,7 @@ DoubleLinkedList::~DoubleLinkedList()
 {
 	
 }
-int DoubleLinkedList::pushFront(struct Node** head, int newData)
+void DoubleLinkedList::pushFront(struct Node** head, int newData)
 {
 	struct Node* newNode = new Node;
 	newNode->data = newData;
@@ -22,14 +22,25 @@ int DoubleLinkedList::pushFront(struct Node** head, int newData)
 	(*head) = newNode;
 
 }
-int DoubleLinkedList::pushBack(Node** tail, int newData)
+void DoubleLinkedList::pushBack(Node** head, int newData)
 {
 	struct Node* newNode = new Node;
-	struct Node* tail = nullptr;
+	struct Node* tail = *head;
 	newNode->data = newData;
 	newNode->next = nullptr;
-	*tail = newNode;
-	return;
+	if (*head == nullptr)
+	{
+		newNode->previous = nullptr;
+		*head = newNode;
+	}
+	while (tail->next != nullptr)
+	{
+		tail = tail->next;
+		tail->next = newNode;
+		newNode->previous = tail;
+		return;
+	}
+	
 }
 void DoubleLinkedList::insert(Node* previous, int newData)
 {
