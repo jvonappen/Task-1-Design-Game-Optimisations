@@ -6,21 +6,21 @@ class DoubleLinkedList
 	{
 	public:
 		int data;
-		struct Node* head = nullptr;
-		struct Node* tail = nullptr;
-		struct Node* previous;
-		struct Node* next;
-
+		
+		struct Node *previous;
+		struct Node *next;
 	};
 
-	int value;
+private:
+	Node *head;
+	Node *tail;
 
 public:
 	DoubleLinkedList();
 	~DoubleLinkedList();
 
-	void pushFront(struct Node** head, int newData);		//- add a new value to the front of the list 
-	void pushBack(Node** tail, int newData);				//- add a new value to the end of the list
+	void pushFront(int newData);		//- add a new value to the front of the list 
+	void pushBack(int newData);				//- add a new value to the end of the list
 	void insert(Node* previous, int newData);			//- add a new value one-past the specified iterator location
 	auto begin();										//- return an iterator to the first element
 	auto end();											//– return an iterator to a null element

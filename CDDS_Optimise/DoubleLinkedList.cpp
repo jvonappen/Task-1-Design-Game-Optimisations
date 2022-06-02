@@ -9,42 +9,34 @@ DoubleLinkedList::~DoubleLinkedList()
 {
 	
 }
-void DoubleLinkedList::pushFront(struct Node** head, int newData)
+void DoubleLinkedList::pushFront(int newData)
 {
-	struct Node* newNode = new Node;
+	Node* newNode = new Node;
 	newNode->data = newData;
-	newNode->next = (*head);
+	newNode->next = head;
 	newNode->previous = nullptr;
-	if ((*head) != nullptr)
+	if (head != nullptr)
 	{
-		(*head)->previous = newNode;
+		head->previous = newNode;
 	}
-	(*head) = newNode;
+	head = newNode;
 
 }
-void DoubleLinkedList::pushBack(Node** head, int newData)
+void DoubleLinkedList::pushBack(int newData)
 {
-	struct Node* newNode = new Node;
-	struct Node* tail = *head;
+	Node* newNode = new Node;
 	newNode->data = newData;
 	newNode->next = nullptr;
-	if (*head == nullptr)
+	newNode->previous = tail;
+	if (tail != nullptr)
 	{
-		newNode->previous = nullptr;
-		*head = newNode;
-	}
-	while (tail->next != nullptr)
-	{
-		tail = tail->next;
 		tail->next = newNode;
-		newNode->previous = tail;
-		return;
 	}
-	
+	tail = newNode;
 }
 void DoubleLinkedList::insert(Node* previous, int newData)
 {
-	struct Node* newNode = new Node;
+	Node* newNode = new Node;
 	newNode->data = newData;
 	newNode->next = previous->next;  //- sets next to newNode to next of previous Node
 	previous->next = newNode;        //- sets next of previous Node to newNode
