@@ -50,4 +50,28 @@ void DoubleLinkedList::insert(Node* previous, int newData)
 auto DoubleLinkedList::begin()
 {
 }
+auto DoubleLinkedList::end()
+{
+}
+auto DoubleLinkedList::first()
+{
+}
+auto DoubleLinkedList::last()
+{
+}
+auto DoubleLinkedList::count()
+{
+}
+auto DoubleLinkedList::erase(Node)
+{
+}
+auto DoubleLinkedList::remove(int value)
+{
+}
+auto DoubleLinkedList::popBack()
+{
+}
+auto DoubleLinkedList::popFront()
+{
+}
 ;
