@@ -7,9 +7,12 @@ DoubleLinkedList::DoubleLinkedList()
 
 DoubleLinkedList::~DoubleLinkedList()
 {
-	
+	for (Node* node = head; node != nullptr;)
+	{
+		//Node* next = 
+	}
 }
-void DoubleLinkedList::pushFront(int newData)
+void DoubleLinkedList::pushFront(int newData)		//- add a new value to the front of the list 
 {
 	Node* newNode = new Node;
 	newNode->data = newData;
@@ -22,7 +25,7 @@ void DoubleLinkedList::pushFront(int newData)
 	head = newNode;
 
 }
-void DoubleLinkedList::pushBack(int newData)
+void DoubleLinkedList::pushBack(int newData)		//- add a new value to the end of the list	
 {
 	Node* newNode = new Node;
 	newNode->data = newData;
@@ -34,7 +37,7 @@ void DoubleLinkedList::pushBack(int newData)
 	}
 	tail = newNode;
 }
-void DoubleLinkedList::insert(Node* previous, int newData)
+void DoubleLinkedList::insert(Node* previous, int newData)		//- add a new value one-past the specified iterator location
 {
 	Node* newNode = new Node;
 	newNode->data = newData;
@@ -47,31 +50,39 @@ void DoubleLinkedList::insert(Node* previous, int newData)
 	}
 
 }
-auto DoubleLinkedList::begin()
+auto DoubleLinkedList::begin()				//- return an iterator to the first element
+{
+	return head;
+}
+auto DoubleLinkedList::end()				//– return an iterator to a null element
+{
+	return nullptr;
+}
+auto DoubleLinkedList::first()				//– return the first element by value, assert if no elements
 {
 }
-auto DoubleLinkedList::end()
+auto DoubleLinkedList::last()				//– return the last element by value, assert if no elements
 {
 }
-auto DoubleLinkedList::first()
+auto DoubleLinkedList::count()				//– return how many elements exist in the list
 {
 }
-auto DoubleLinkedList::last()
+auto DoubleLinkedList::erase(Node)			//– remove an element by its iterator
 {
 }
-auto DoubleLinkedList::count()
+auto DoubleLinkedList::remove(int value)	//– remove all elements with matching value
 {
 }
-auto DoubleLinkedList::erase(Node)
+auto DoubleLinkedList::popBack()			//– remove the last element
 {
 }
-auto DoubleLinkedList::remove(int value)
+auto DoubleLinkedList::popFront()			//– remove the first element
 {
 }
-auto DoubleLinkedList::popBack()
+auto DoubleLinkedList::empty()				//– return a Boolean, true if the list is empty, false otherwise
 {
 }
-auto DoubleLinkedList::popFront()
+auto DoubleLinkedList::clear()				//– remove all elements from the list
 {
 }
 ;
