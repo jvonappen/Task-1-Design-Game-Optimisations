@@ -67,9 +67,9 @@ auto DoubleLinkedList::last()				//– return the last element by value, assert if
 auto DoubleLinkedList::count()				//– return how many elements exist in the list
 {
 }
-auto DoubleLinkedList::erase(Node)			//– remove an element by its iterator
-{
-}
+//auto DoubleLinkedList::erase(Node)			//– remove an element by its iterator
+//{
+//}
 auto DoubleLinkedList::remove(int value)	//– remove all elements with matching value
 {
 }
