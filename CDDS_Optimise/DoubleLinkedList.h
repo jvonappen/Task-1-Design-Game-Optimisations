@@ -27,7 +27,7 @@ public:
 	auto first();										//– return the first element by value, assert if no elements
 	auto last();										//– return the last element by value, assert if no elements
 	auto count();										//– return how many elements exist in the list
-	auto erase(Node);									//– remove an element by its iterator
+	auto erase(Node*);									//– remove an element by its iterator
 	auto remove(int value);								//– remove all elements with matching value
 	auto popBack();										//– remove the last element
 	auto popFront();									//– remove the first element
