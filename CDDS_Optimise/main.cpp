@@ -35,12 +35,8 @@ int main(int argc, char* argv[])
         velocity = Vector2Scale(Vector2Normalize(velocity), MAX_VELOCITY);
 
         // create a critter in a random location
-        critters[i].Init(
-            { (float)(5+rand() % (screenWidth-10)), (float)(5+(rand() % screenHeight-10)) },
-            velocity,
-            12, "res/10.png");
+        critters[i].Init({ (float)(5+rand() % (screenWidth-10)), (float)(5+(rand() % screenHeight-10)) }, velocity, 12, "res/10.png");
     }
-
 
     Critter destroyer;
     Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
