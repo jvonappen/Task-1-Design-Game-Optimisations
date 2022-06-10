@@ -167,7 +167,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Critter.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="Graph.cpp" />
@@ -175,7 +174,6 @@
     <ClCompile Include="ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Critter.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="Graph.h" />
