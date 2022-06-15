@@ -15,6 +15,8 @@ int main(int argc, char* argv[])
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
+    LoadTexture("res / 10.png");
+
     //SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
 
