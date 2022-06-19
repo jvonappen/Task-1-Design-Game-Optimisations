@@ -6,3 +6,18 @@ Each time you request a texture to be loaded, you will ask the Resource Manager 
 The Resource Manager will look up the texture in the hash table and return a reference to the texture if it has previously been loaded.
 If it has not been loaded, the Resource Manager will load the texture and store it in the hash table.
 -------------------------------------------------------------------------------------------------------*/
+
+#include "raylib.h"
+#include <unordered_map>	/* Need to change to own hash table */
+#include <string>			/* place holder for hash key */
+
+class ResourceManager
+{
+public:
+	~ResourceManager();
+
+	Texture2D loadTexture(const char* file);
+
+private:
+	std::unordered_map<std::string, Texture2D> m_textures; /* Hash table used, key is 'string' */
+};

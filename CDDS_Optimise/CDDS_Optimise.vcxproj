@@ -169,6 +169,7 @@
   <ItemGroup>
     <ClCompile Include="Critter.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -176,6 +177,7 @@
   <ItemGroup>
     <ClInclude Include="Critter.h" />
     <ClInclude Include="DoubleLinkedList.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="ResourceManager.h" />
   </ItemGroup>
