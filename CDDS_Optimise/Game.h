@@ -1,6 +1,10 @@
 #pragma once
 
 #include "ResourceManager.h"
+#include "GameMode.h"
+#include <stack>
+#include <memory>
+
 
 class Game
 {
@@ -12,7 +16,14 @@ public:
 
 	ResourceManager& resources() { return m_resources; }
 
+	void pushMode(std::unique_ptr<GameMode>& mode);
+	void popMode(int count = 1);
+	GameMode& peekMode();
+	
+
 private:
 	ResourceManager m_resources;
+
+	std::stack<std::unique_ptr<GameMode>> m_gmode;
 };
 
