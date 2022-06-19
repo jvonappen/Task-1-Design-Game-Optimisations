@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     //SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
     Game game;      /*** MY CODE ***/
-    game.Load();    /*** MY CODE ***/
+    game.load();    /*** MY CODE ***/
 
     //--------------------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
         //----------------------------------------------------------------------------------
 
         float delta = GetFrameTime();
-        game.Update(delta); /*** MY CODE ***/
+        game.update(delta); /*** MY CODE ***/
 
         //// update the destroyer
         //destroyer.Update(delta);
@@ -177,7 +177,7 @@ int main(int argc, char* argv[])
 
         ClearBackground(RAYWHITE);
 
-        game.Draw();    /*** MY CODE ***/
+        game.draw();    /*** MY CODE ***/
 
     //    // draw the critters
     //    for (int i = 0; i < CRITTER_COUNT; i++)
@@ -204,7 +204,7 @@ int main(int argc, char* argv[])
     // De-Initialization
     //--------------------------------------------------------------------------------------   
    
-    game.Unload();      /*** MY CODE ***/
+    game.unload();      /*** MY CODE ***/
     
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------

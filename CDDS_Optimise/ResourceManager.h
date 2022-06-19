@@ -16,7 +16,7 @@ class ResourceManager
 public:
 	~ResourceManager();
 
-	Texture2D loadTexture(const char* file);
+	Texture2D loadTexture(const char* file); /* Must use lower case "L" as this conflicted with an inbuilt function with the same name  */
 
 private:
 	std::unordered_map<std::string, Texture2D> m_textures; /* Hash table used, key is 'string' */

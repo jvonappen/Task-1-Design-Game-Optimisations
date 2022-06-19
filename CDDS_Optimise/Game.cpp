@@ -1,19 +1,19 @@
 #include "Game.h"
 
-void Game::Load()
+void Game::load()
 {
 	Texture2D redDestroyer = m_resources.loadTexture("res/11.png");
 }
 
-void Game::Unload()
+void Game::unload()
 {
 }
 
-void Game::Update(float delta)
+void Game::update(float delta)
 {
 }
 
-void Game::Draw()
+void Game::draw()
 {
 	Texture2D redDestroyer = m_resources.loadTexture("res/11.png");
 	DrawTexture(redDestroyer, 100, 100, RAYWHITE);

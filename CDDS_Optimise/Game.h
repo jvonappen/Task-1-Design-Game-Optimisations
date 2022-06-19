@@ -5,10 +5,10 @@
 class Game
 {
 public:
-	void Load();
-	void Unload();
-	void Update(float delta);
-	void Draw();
+	void load();
+	void unload();
+	void update(float delta);
+	void draw();
 
 	ResourceManager& resources() { return m_resources; }
 
