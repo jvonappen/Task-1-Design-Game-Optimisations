@@ -16,7 +16,7 @@ public:
 
 	ResourceManager& resources() { return m_resources; }
 
-	void pushMode(std::unique_ptr<GameMode>& mode);
+	void pushMode(GameMode* mode);
 	void popMode(int count = 1);
 	GameMode& peekMode();
 	

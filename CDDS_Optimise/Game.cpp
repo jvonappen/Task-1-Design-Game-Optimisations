@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Menu.h"
 
 void Game::load()
 {
@@ -6,6 +7,8 @@ void Game::load()
 
 	Texture2D critters = m_resources.loadTexture("res/9.png");
 	Texture2D destroyer = m_resources.loadTexture("res/10.png");
+
+	pushMode(new Menu());
 }
 
 void Game::unload()
@@ -14,7 +17,7 @@ void Game::unload()
 
 void Game::update(float delta)
 {
-	//peekMode().update(delta);
+	peekMode().update(delta);
 }
 
 void Game::draw()
@@ -22,12 +25,12 @@ void Game::draw()
 	Texture2D redDestroyer = m_resources.loadTexture("res/11.png");
 	DrawTexture(redDestroyer, 100, 100, RAYWHITE);
 
-	//peekMode().draw();
+	peekMode().draw();
 }
 
-void Game::pushMode(std::unique_ptr<GameMode>& mode)
+void Game::pushMode(GameMode* mode)
 {
-	m_gmode.push(std::move(mode));
+	m_gmode.emplace(GameModePtr(mode));
 }
 
 void Game::popMode(int count)

@@ -1,4 +1,6 @@
 #pragma once
+#include <memory>
+
 class GameMode
 {
 public:
@@ -9,3 +11,4 @@ public:
 	virtual void draw() {};
 };
 
+using GameModePtr = std::unique_ptr<GameMode>;
