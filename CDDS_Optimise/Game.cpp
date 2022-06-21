@@ -22,8 +22,8 @@ void Game::update(float delta)
 
 void Game::draw()
 {
-	Texture2D redDestroyer = m_resources.loadTexture("res/11.png");
-	DrawTexture(redDestroyer, 100, 100, RAYWHITE);
+	//Texture2D redDestroyer = m_resources.loadTexture("res/11.png");
+	//DrawTexture(redDestroyer, 100, 100, RAYWHITE);
 
 	peekMode()->draw();
 }
