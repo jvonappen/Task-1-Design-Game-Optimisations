@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "Game.h"
 
 void GameObject::update(float delta)
 {
@@ -40,4 +41,16 @@ bool GameObject::hasComponent(const char* name)
 void GameObject::removeComponent(const char* name)
 {
 	m_components.erase(name);
+}
+
+GameObjectPtr GameObject::clone(const glm::vec2& position)
+{
+	GameObjectPtr clone = std::make_shared<GameObject>();
+	clone->m_position = position;
+	for (auto components : m_components)
+	{
+		clone->m_components[components.first] = std::shared_ptr<Component>(components.second->clone());
+	}
+
+	return clone;
 }

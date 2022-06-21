@@ -39,6 +39,7 @@ public:
 
 			/* ^^^ Could Template all of this ^^^ */
 
+	std::shared_ptr<GameObject> clone(const glm::vec2& position);
 
 private:
 	glm::vec2 m_position{0,0};

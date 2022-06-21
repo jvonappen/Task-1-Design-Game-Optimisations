@@ -23,6 +23,7 @@ public:
 	GameMode* peekMode();
 	
 
+
 private:
 	Game() {}
 	ResourceManager m_resources;
