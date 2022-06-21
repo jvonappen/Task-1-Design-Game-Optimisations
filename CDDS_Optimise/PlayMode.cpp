@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "Sprite.h"
 #include <algorithm>
+#include "Player.h"
 
 
 
@@ -12,6 +13,7 @@ PlayMode::PlayMode()
 	player->setPosition(glm::vec2(200, 200));
 	auto texture = Game::instance().resources().loadTexture("res/11.png");
 	player->addComponent(new Sprite(texture));
+	player->addComponent(new Player(*this));
 
 	auto critterV2 = createGameObject();
 	critterV2->setPosition(glm::vec2(300, 200));
@@ -57,4 +59,9 @@ GameObjectPtr PlayMode::createGameObject()
 	auto object = std::make_shared<GameObject>();
 	m_gameObjects.push_back(object);
 	return object;
+}
+
+void PlayMode::addGameObject(GameObjectPtr object)
+{
+	m_gameObjects.push_back(object);
 }

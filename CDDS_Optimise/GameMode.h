@@ -1,6 +1,8 @@
 #pragma once
 #include <memory>
 
+/* Part of the Double Linked List */
+
 class GameMode
 {
 public:

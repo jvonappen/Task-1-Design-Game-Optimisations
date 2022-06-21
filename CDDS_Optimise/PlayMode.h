@@ -16,6 +16,7 @@ public:
 
 	/* Create game object */
 	GameObjectPtr createGameObject();
+	void addGameObject(GameObjectPtr object);
 
 private:
 	std::vector<GameObjectPtr> m_gameObjects;

@@ -12,15 +12,15 @@ int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 800;         /* 800 */
+    int screenWidth = 800;          /* 800 */
     int screenHeight = 450;         /* 450 */
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     //SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
-    Game& game = Game::instance();      /*** MY CODE ***/
-    game.load();    /*** MY CODE ***/
+    Game& game = Game::instance();       /*** MY CODE ***/
+    game.load();                         /*** MY CODE ***/
 
     //--------------------------------------------------------------------------------------
 
