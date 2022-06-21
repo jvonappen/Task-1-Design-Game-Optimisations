@@ -1,12 +1,13 @@
 #include "Menu.h"
 #include "Game.h"
 #include "raylib.h"
+#include "PlayMode.h"
 
 void Menu::update(float delta)
 {
 	if (IsKeyPressed(KEY_SPACE))
 	{
-		//Game::instance().pushMode();
+		Game::instance().pushMode(new PlayMode());
 	}
 }
 

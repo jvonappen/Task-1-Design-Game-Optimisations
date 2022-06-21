@@ -17,7 +17,7 @@ void Game::unload()
 
 void Game::update(float delta)
 {
-	peekMode().update(delta);
+	peekMode()->update(delta);
 }
 
 void Game::draw()
@@ -25,12 +25,23 @@ void Game::draw()
 	Texture2D redDestroyer = m_resources.loadTexture("res/11.png");
 	DrawTexture(redDestroyer, 100, 100, RAYWHITE);
 
-	peekMode().draw();
+	peekMode()->draw();
+}
+
+Game& Game::instance()
+{
+	static Game* instance = new Game();
+	return *instance;
 }
 
 void Game::pushMode(GameMode* mode)
 {
+	if (m_gmode.size() > 0)
+	{
+		peekMode()->exit();
+	}
 	m_gmode.emplace(GameModePtr(mode));
+	peekMode()->enter();
 }
 
 void Game::popMode(int count)
@@ -41,7 +52,7 @@ void Game::popMode(int count)
 	}
 }
 
-GameMode& Game::peekMode()
+GameMode* Game::peekMode()
 {
-	return *m_gmode.top();
+	return m_gmode.top().get();
 }

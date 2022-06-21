@@ -16,12 +16,15 @@ public:
 
 	ResourceManager& resources() { return m_resources; }
 
+	static Game& instance();
+
 	void pushMode(GameMode* mode);
 	void popMode(int count = 1);
-	GameMode& peekMode();
+	GameMode* peekMode();
 	
 
 private:
+	Game() {}
 	ResourceManager m_resources;
 
 	std::stack<std::unique_ptr<GameMode>> m_gmode;
