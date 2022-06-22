@@ -4,6 +4,7 @@
 #include "Sprite.h"
 #include <algorithm>
 #include "Player.h"
+#include "Collision.h"
 
 
 
@@ -35,6 +36,10 @@ void PlayMode::update(float delta)
 	/*Collision check*/
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
+		if (m_gameObjects[i]->hasComponent<Collision>())
+		{
+			auto colliderA = m_gameObjects[i]->getComponent<Collision>();
+		}
 	
 	}
 
