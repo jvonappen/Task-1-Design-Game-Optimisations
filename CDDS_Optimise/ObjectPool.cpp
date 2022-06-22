@@ -1,5 +1,6 @@
 #include "ObjectPool.h"
 #include "PlayMode.h"
+#include <algorithm>
 
 ObjectPool::ObjectPool(PlayMode& mode, GameObjectPtr prototype, int cap) : m_mode(mode)
 {
@@ -15,7 +16,9 @@ GameObjectPtr ObjectPool::spawn()
 	if (m_inactive.size() > 0)
 	{
 		auto object = m_inactive.back();
+		object->setActive(true);
 		m_inactive.pop_back();
+		m_active.push_back(object);
 		return object;
 	}
 	return nullptr;
@@ -23,5 +26,22 @@ GameObjectPtr ObjectPool::spawn()
 
 void ObjectPool::despawn(GameObjectPtr object)
 {
+	
+}
 
+void ObjectPool::clear()
+{
+	for (auto& object : m_active)
+	{
+		if (!object->isActive())
+		{
+			m_inactive.push_back(object);
+			m_mode.removeGameObject(object);
+		}
+	}
+	m_active.erase(std::remove_if(
+		m_active.begin(),
+		m_active.end(),
+		[](auto& object) {return !object->isActive(); }),
+		m_active.end());
 }

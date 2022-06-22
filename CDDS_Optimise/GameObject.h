@@ -13,7 +13,7 @@ public:
 	virtual void update(GameObject& owner, float delta) {}
 	virtual void draw(GameObject& owner) {}
 	virtual const char* getName() = 0;
-	virtual Component* clone() = 0;
+	virtual Component* clone() { return nullptr; }
 };
 using ComponentPtr = std::shared_ptr<Component>;
 
@@ -37,14 +37,19 @@ public:
 	float getRotation() const { return m_rotation; }
 	void setRotation(float rotation) { m_rotation = rotation; }
 
+	bool isActive() const { return m_active; }
+	void setActive(bool active) { m_active = active; }
+
 			/* ^^^ Could Template all of this ^^^ */
 
 	std::shared_ptr<GameObject> clone(const glm::vec2& position);
+
 
 private:
 	glm::vec2 m_position{0,0};
 	glm::vec2 m_scale{1,1};
 	float m_rotation{0};
+	bool m_active{ true };
 
 	std::unordered_map<std::string, ComponentPtr> m_components;
 

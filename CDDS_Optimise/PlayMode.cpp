@@ -36,6 +36,19 @@ void PlayMode::update(float delta)
 	{
 		object->update(delta);
 	}
+
+	auto pred = [&](auto& object)
+	{
+		return std::find(
+			m_removeGameObjects.begin(),
+			m_removeGameObjects.end(),
+			object) != m_removeGameObjects.end();
+	};
+
+	m_gameObjects.erase(std::remove_if(m_gameObjects.begin(),
+		m_gameObjects.end(), pred), m_gameObjects.end());
+		
+	m_removeGameObjects.clear();
 }
 
 void PlayMode::draw()
@@ -65,3 +78,9 @@ void PlayMode::addGameObject(GameObjectPtr object)
 {
 	m_gameObjects.push_back(object);
 }
+
+void PlayMode::removeGameObject(GameObjectPtr object)
+{
+	m_removeGameObjects.push_back(object);
+}
+
