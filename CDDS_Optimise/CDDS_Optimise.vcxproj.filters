@@ -57,7 +57,7 @@
     <ClCompile Include="InactiveAfter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="critterV2.cpp">
+    <ClCompile Include="CritterV2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +101,7 @@
     <ClInclude Include="InactiveAfter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="critterV2.h">
+    <ClInclude Include="CritterV2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -168,7 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Critter.cpp" />
-    <ClCompile Include="critterV2.cpp" />
+    <ClCompile Include="CritterV2.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMode.cpp" />
@@ -185,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Critter.h" />
-    <ClInclude Include="critterV2.h" />
+    <ClInclude Include="CritterV2.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMode.h" />
