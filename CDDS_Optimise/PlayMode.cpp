@@ -32,6 +32,12 @@ PlayMode::PlayMode()
 
 void PlayMode::update(float delta)
 {
+	/*Collision check*/
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+	
+	}
+
 	for (auto object : m_gameObjects)
 	{
 		object->update(delta);

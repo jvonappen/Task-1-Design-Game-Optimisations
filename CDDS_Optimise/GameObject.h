@@ -14,6 +14,7 @@ public:
 	virtual void draw(GameObject& owner) {}
 	virtual const char* getName() = 0;
 	virtual Component* clone() { return nullptr; }
+	virtual void onCollision(GameObject& owner, GameObject& other) {}
 };
 using ComponentPtr = std::shared_ptr<Component>;
 

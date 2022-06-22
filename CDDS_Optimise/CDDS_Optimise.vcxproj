@@ -167,13 +167,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Critter.cpp" />
     <ClCompile Include="CritterV2.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMode.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="InactiveAfter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -184,13 +184,13 @@
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Critter.h" />
     <ClInclude Include="CritterV2.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMode.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Graph.h" />
     <ClInclude Include="InactiveAfter.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="ObjectPool.h" />

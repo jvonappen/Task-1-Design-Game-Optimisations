@@ -7,6 +7,7 @@ CritterV2::CritterV2(float speed) : m_speed(speed)
 
 void CritterV2::update(GameObject& owner, float delta)
 {
+	/* Put critter movements in here */
 }
 
 Component* CritterV2::clone()
