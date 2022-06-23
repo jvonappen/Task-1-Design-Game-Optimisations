@@ -13,3 +13,8 @@ bool Collision::checkCollision(GameObject& owner, GameObject& other, Collision& 
 
     return glm::length2(owner.getPosition() - other.getPosition()) < r2;
 }
+
+Component* Collision::clone()
+{
+    return new Collision(*this);
+}

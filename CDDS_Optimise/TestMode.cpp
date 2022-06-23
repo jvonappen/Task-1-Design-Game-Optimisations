@@ -1,4 +1,4 @@
-#include "PlayMode.h"
+#include "TestMode.h"
 #include "raylib.h"
 #include "Game.h"
 #include "Sprite.h"
@@ -6,16 +6,8 @@
 #include "Player.h"
 #include "Collision.h"
 
-
-
-PlayMode::PlayMode()
+TestMode::TestMode()
 {
-	auto player = createGameObject();
-	player->setPosition(glm::vec2(200, 200));
-	auto texture = Game::instance().resources().loadTexture("res/11.png");
-	player->addComponent(new Sprite(texture));
-	player->addComponent(new Player(*this));
-
 	auto critterV2 = createGameObject();
 	critterV2->setPosition(glm::vec2(300, 200));
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
@@ -28,24 +20,10 @@ PlayMode::PlayMode()
 		auto critterClone = critterV2->clone(pos);
 		m_gameObjects.push_back(critterClone);
 	}
-
 }
 
-void PlayMode::update(float delta)
+void TestMode::update(float delta)
 {
-	/*Collision check*/
-	/*for (int i = 0; i < m_gameObjects.size(); i++)
-	{
-		if (m_gameObjects[i]->hasComponent<Collision>())
-		{
-			auto colliderA = m_gameObjects[i]->getComponent<Collision>();
-			for (int j = i + 1; j < m_gameObjects.size(); j++)
-			{
-				auto colliderB = m_gameObjects[j]->getComponent<Collision>();
-			}
-		}
-	
-	}*/
 
 	for (auto object : m_gameObjects)
 	{
@@ -62,19 +40,19 @@ void PlayMode::update(float delta)
 
 	m_gameObjects.erase(std::remove_if(m_gameObjects.begin(),
 		m_gameObjects.end(), pred), m_gameObjects.end());
-		
+
 	m_removeGameObjects.clear();
 }
 
-void PlayMode::draw()
+void TestMode::draw()
 {
-	ClearBackground(GRAY);
+	ClearBackground(RAYWHITE);
 
 	std::sort(m_gameObjects.begin(), m_gameObjects.end(), [](GameObjectPtr& a, GameObjectPtr& b)
-	{
+		{
 			return a->getPosition().y < b->getPosition().y;
 
-	});
+		});
 
 	for (auto object : m_gameObjects)
 	{
@@ -82,20 +60,19 @@ void PlayMode::draw()
 	}
 }
 
-GameObjectPtr PlayMode::createGameObject()
+GameObjectPtr TestMode::createGameObject()
 {
 	auto object = std::make_shared<GameObject>();
 	m_gameObjects.push_back(object);
 	return object;
 }
 
-void PlayMode::addGameObject(GameObjectPtr object)
+void TestMode::addGameObject(GameObjectPtr object)
 {
 	m_gameObjects.push_back(object);
 }
 
-void PlayMode::removeGameObject(GameObjectPtr object)
+void TestMode::removeGameObject(GameObjectPtr object)
 {
 	m_removeGameObjects.push_back(object);
 }
-

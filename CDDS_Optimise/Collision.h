@@ -6,8 +6,10 @@ class Collision : public Component
 {
 public:
 	Collision(float radius);
-	const char* getName() override { return "Collision"; }
+	
 	bool checkCollision(GameObject& owner, GameObject& other, Collision& collider);
+	const char* getName() override { return "Collision"; }
+	Component* clone() override;
 
 
 private:

@@ -182,6 +182,7 @@
     <ClCompile Include="PlayMode.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="TestMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collision.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="PlayMode.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="TestMode.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
