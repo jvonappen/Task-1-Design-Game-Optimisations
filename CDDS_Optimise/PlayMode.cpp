@@ -5,13 +5,15 @@
 #include <algorithm>
 #include "Player.h"
 #include "Collision.h"
+#include "Menu.h"
+//#include "CritterV2.h"
 
 
 
 PlayMode::PlayMode()
 {
 	auto player = createGameObject();
-	player->setPosition(glm::vec2(200, 200));
+	player->setPosition(glm::vec2(150, 150));
 	auto texture = Game::instance().resources().loadTexture("res/11.png");
 	player->addComponent(new Sprite(texture));
 	player->addComponent(new Player(*this));
@@ -20,6 +22,13 @@ PlayMode::PlayMode()
 	critterV2->setPosition(glm::vec2(300, 200));
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
 	critterV2->addComponent(new Sprite(critterTexture));
+	//critterV2->addComponent(new CritterV2(*this));
+
+	auto destroyerV2 = createGameObject();
+	destroyerV2->setPosition(glm::vec2(250, 250));
+	auto destroyerV2Texture = Game::instance().resources().loadTexture("res/9.png");
+	destroyerV2->addComponent(new Sprite(destroyerV2Texture));
+	
 
 	const int CRITTER_COUNT = 50;
 	for (int i = 0; i < CRITTER_COUNT; i++)
@@ -33,6 +42,7 @@ PlayMode::PlayMode()
 
 void PlayMode::update(float delta)
 {
+	
 	/*Collision check*/
 	/*for (int i = 0; i < m_gameObjects.size(); i++)
 	{
@@ -46,6 +56,8 @@ void PlayMode::update(float delta)
 		}
 	
 	}*/
+
+	 
 
 	for (auto object : m_gameObjects)
 	{
@@ -68,7 +80,7 @@ void PlayMode::update(float delta)
 
 void PlayMode::draw()
 {
-	ClearBackground(GRAY);
+	ClearBackground(RAYWHITE);
 
 	std::sort(m_gameObjects.begin(), m_gameObjects.end(), [](GameObjectPtr& a, GameObjectPtr& b)
 	{

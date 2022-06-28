@@ -11,7 +11,7 @@ void Menu::update(float delta)
 		Game::instance().pushMode(new TestMode());
 	}
 
-	if (IsKeyPressed(KEY_TWO))
+	if (IsKeyPressed(KEY_ENTER))
 	{
 		Game::instance().pushMode(new PlayMode());
 	}
@@ -19,11 +19,11 @@ void Menu::update(float delta)
 
 void Menu::draw()
 {
-	ClearBackground(BLACK);
+	ClearBackground(RAYWHITE);
 
-	const char* text = "Press [1] for Optimisations Exercise \nPress [2] to play a game";
+	const char* text = "Press [ENTER] for Optimisations Exercise";
 		int fontSize = 25;
 		int fontWidth = MeasureText(text, fontSize);
 
-		DrawText(text, GetScreenWidth() / 2 - fontWidth / 2, GetScreenHeight() / 2 - fontSize / 2, fontSize, RED);
+		DrawText(text, GetScreenWidth() / 2 - fontWidth / 2, GetScreenHeight() / 2 - fontSize / 2, fontSize, PURPLE);
 }

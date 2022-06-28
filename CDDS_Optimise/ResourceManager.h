@@ -8,8 +8,8 @@ If it has not been loaded, the Resource Manager will load the texture and store 
 -------------------------------------------------------------------------------------------------------*/
 
 #include "raylib.h"
-#include <unordered_map>	/* Need to change to own hash table */
-#include <string>			/* place holder for hash key */
+#include <unordered_map>	/* Hash table */
+#include <string>			/* Hash key */
 
 class ResourceManager
 {
