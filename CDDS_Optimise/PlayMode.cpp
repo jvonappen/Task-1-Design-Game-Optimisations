@@ -6,8 +6,8 @@
 #include "Player.h"
 #include "Collision.h"
 #include "Menu.h"
-//#include "CritterV2.h"
-
+#include <raymath.h>
+#include "Movement.h"
 
 
 PlayMode::PlayMode()
@@ -18,25 +18,28 @@ PlayMode::PlayMode()
 	player->addComponent(new Sprite(texture));
 	player->addComponent(new Player(*this));
 
-	auto critterV2 = createGameObject();
-	critterV2->setPosition(glm::vec2(300, 200));
+	auto critter = createGameObject();
+	critter->setPosition(glm::vec2(300, 200));
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
-	critterV2->addComponent(new Sprite(critterTexture));
-	//critterV2->addComponent(new CritterV2(*this));
+	critter->addComponent(new Sprite(critterTexture));
+	critter->addComponent(new Collision(20));
+	critter->addComponent(new Movement(*this));
 
 	auto destroyerV2 = createGameObject();
 	destroyerV2->setPosition(glm::vec2(250, 250));
 	auto destroyerV2Texture = Game::instance().resources().loadTexture("res/9.png");
 	destroyerV2->addComponent(new Sprite(destroyerV2Texture));
-	
 
 	const int CRITTER_COUNT = 50;
 	for (int i = 0; i < CRITTER_COUNT; i++)
 	{
+
 		auto pos = glm::vec2{ GetRandomValue(0, GetScreenWidth()), GetRandomValue(0, GetScreenHeight()) };
-		auto critterClone = critterV2->clone(pos);
+		auto critterClone = critter->clone(pos);
 		m_gameObjects.push_back(critterClone);
 	}
+
+	
 
 }
 
@@ -44,20 +47,19 @@ void PlayMode::update(float delta)
 {
 	
 	/*Collision check*/
-	/*for (int i = 0; i < m_gameObjects.size(); i++)
+	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
-		if (m_gameObjects[i]->hasComponent<Collision>())
+		if (m_gameObjects[i]->hasComponent("Collision"))				/*newly added*/
 		{
-			auto colliderA = m_gameObjects[i]->getComponent<Collision>();
+			auto colliderA = m_gameObjects[i]->getComponent("Collision");
 			for (int j = i + 1; j < m_gameObjects.size(); j++)
 			{
-				auto colliderB = m_gameObjects[j]->getComponent<Collision>();
+				auto colliderB = m_gameObjects[j]->getComponent("Collision");
 			}
 		}
 	
-	}*/
-
-	 
+	}
+	bool checkCollision(GameObject critter, GameObject & other, Collision & collider); /*newly added*/
 
 	for (auto object : m_gameObjects)
 	{
@@ -92,6 +94,7 @@ void PlayMode::draw()
 	{
 		object->draw();
 	}
+
 }
 
 GameObjectPtr PlayMode::createGameObject()

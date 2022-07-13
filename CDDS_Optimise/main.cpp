@@ -177,6 +177,8 @@ int main(int argc, char* argv[])
 
         ClearBackground(RAYWHITE);
 
+        //DrawCircleLines(m_position.x, m_position.y, 20, RED);
+
         game.draw();    /*** MY CODE ***/
 
     //    // draw the critters
