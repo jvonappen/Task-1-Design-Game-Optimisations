@@ -46,19 +46,19 @@ PlayMode::PlayMode()
 void PlayMode::update(float delta)
 {
 	
-	/*Collision check*/
-	for (int i = 0; i < m_gameObjects.size(); i++)
-	{
-		if (m_gameObjects[i]->hasComponent("Collision"))				/*newly added*/
-		{
-			auto colliderA = m_gameObjects[i]->getComponent("Collision");
-			for (int j = i + 1; j < m_gameObjects.size(); j++)
-			{
-				auto colliderB = m_gameObjects[j]->getComponent("Collision");
-			}
-		}
-	
-	}
+	///*Collision check*/
+	//for (int i = 0; i < m_gameObjects.size(); i++)
+	//{
+	//	if (m_gameObjects[i]->hasComponent("Collision"))				/*newly added*/
+	//	{
+	//		auto colliderA = m_gameObjects[i]->getComponent("Collision");
+	//		for (int j = i + 1; j < m_gameObjects.size(); j++)
+	//		{
+	//			auto colliderB = m_gameObjects[j]->getComponent("Collision");
+	//		}
+	//	}
+	//
+	//}
 	bool checkCollision(GameObject critter, GameObject & other, Collision & collider); /*newly added*/
 
 	for (auto object : m_gameObjects)

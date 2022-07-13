@@ -17,7 +17,9 @@ public:
 		return new Movement(*this);
 	}
 
+
 private:
 	PlayMode& m_mode;
+
 };
 
