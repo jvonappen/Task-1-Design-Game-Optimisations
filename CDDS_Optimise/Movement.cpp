@@ -26,10 +26,10 @@ void Movement::update(GameObject& owner, float delta)
 	
 
 
-	if ()
-	{
-		velocity.x -= 1;		/* Left */
-	}
+	//if ()
+	//{
+	//	velocity.x -= 1;		/* Left */
+	//}
 	//if (IsKeyDown(KEY_D))
 	//{
 	//	direction.x += 1;		/* Right */

@@ -23,7 +23,7 @@ PlayMode::PlayMode()
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
 	critter->addComponent(new Sprite(critterTexture));
 	critter->addComponent(new Collision(20));
-	critter->addComponent(new Movement(*this));
+	//critter->addComponent(new Movement(*this));
 
 	auto destroyerV2 = createGameObject();
 	destroyerV2->setPosition(glm::vec2(250, 250));
@@ -84,6 +84,7 @@ void PlayMode::draw()
 {
 	ClearBackground(RAYWHITE);
 
+	/*Adds the layered effect, where objects lower on the y axis are "infront" of other objects higher on the y axis*/
 	std::sort(m_gameObjects.begin(), m_gameObjects.end(), [](GameObjectPtr& a, GameObjectPtr& b)
 	{
 			return a->getPosition().y < b->getPosition().y;

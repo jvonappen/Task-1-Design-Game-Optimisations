@@ -1,10 +1,13 @@
 #include "Player.h"
 #include "PlayMode.h"
 #include "raylib.h"
+#include "Game.h"
+#include "Sprite.h"
 
 Player::Player(PlayMode& mode) : m_mode(mode)
 {
-
+	m_redCritterPrefab = std::make_shared<GameObject>();
+	m_redCritterPrefab->addComponent(new Sprite(Game::instance().resources().loadTexture("res/12.png")));
 }
 
 void Player::update(GameObject& owner, float delta)
@@ -27,6 +30,12 @@ void Player::update(GameObject& owner, float delta)
 	if (IsKeyDown(KEY_S))
 	{
 		direction.y += 1;		/* Down */
+	}
+
+	/*Additional Critter Spawn*/
+	if (IsKeyPressed(KEY_SPACE))
+	{
+		m_mode.addGameObject(m_redCritterPrefab->clone(owner.getPosition()));
 	}
 
 	owner.setPosition(owner.getPosition() + direction * speed * delta);

@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-#include "PlayMode.h"
 #include "ObjectPool.h"
 
 class PlayMode;
@@ -20,5 +19,6 @@ public:
 
 private:
 	PlayMode& m_mode;
+	GameObjectPtr m_redCritterPrefab;
 };
 
