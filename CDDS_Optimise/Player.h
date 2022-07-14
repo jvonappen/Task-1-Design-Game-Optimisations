@@ -14,11 +14,12 @@ public:
 	const char* getName() override { return "Player"; }
 	Component* clone() override 
 	{
-		return new Player(*this);
+		return nullptr;
 	}
 
 private:
 	PlayMode& m_mode;
 	GameObjectPtr m_redCritterPrefab;
+	std::unique_ptr<ObjectPool> m_redCritterPool;
 };
 

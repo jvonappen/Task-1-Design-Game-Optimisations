@@ -22,7 +22,7 @@ public:
 
 private:
 	std::vector<GameObjectPtr> m_gameObjects;
-	std::vector<GameObjectPtr> m_removeGameObjects;
+	std::vector<GameObjectPtr> m_removeObjectsThisFrame;
 	std::vector<GameObjectPtr> m_newObjectsThisFrame;
 };
 

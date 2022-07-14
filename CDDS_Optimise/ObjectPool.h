@@ -14,8 +14,8 @@ public:
 	void clean();
 
 private:
-	std::vector<GameObjectPtr>m_inactive;
 	std::vector<GameObjectPtr>m_active;
+	std::vector<GameObjectPtr>m_inactive;
 	PlayMode& m_mode;
 	GameObjectPtr m_prototype;
 };

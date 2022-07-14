@@ -72,18 +72,22 @@ void PlayMode::update(float delta)
 	}
 	m_newObjectsThisFrame.clear();
 
-	auto pred = [&](auto& object)
+
+	auto p = [&](auto& object) 
 	{
 		return std::find(
-			m_removeGameObjects.begin(),
-			m_removeGameObjects.end(),
-			object) != m_removeGameObjects.end();
+			m_removeObjectsThisFrame.begin(),
+			m_removeObjectsThisFrame.end(),
+			object) != m_removeObjectsThisFrame.end();
 	};
+	m_gameObjects.erase(std::remove_if(
+		m_gameObjects.begin(),
+		m_gameObjects.end(),
+		p),
+		m_gameObjects.end());
+	
+	m_removeObjectsThisFrame.clear();
 
-	m_gameObjects.erase(std::remove_if(m_gameObjects.begin(),
-		m_gameObjects.end(), pred), m_gameObjects.end());
-		
-	m_removeGameObjects.clear();
 }
 
 void PlayMode::draw()
@@ -120,6 +124,6 @@ void PlayMode::addGameObject(GameObjectPtr object)
 
 void PlayMode::removeGameObject(GameObjectPtr object)
 {
-	m_removeGameObjects.push_back(object);
+	m_removeObjectsThisFrame.push_back(object);
 }
 

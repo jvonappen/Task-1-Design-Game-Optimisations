@@ -3,11 +3,14 @@
 #include "raylib.h"
 #include "Game.h"
 #include "Sprite.h"
+#include "MakeInactive.h"
 
 Player::Player(PlayMode& mode) : m_mode(mode)
 {
 	m_redCritterPrefab = std::make_shared<GameObject>();
 	m_redCritterPrefab->addComponent(new Sprite(Game::instance().resources().loadTexture("res/12.png")));
+	m_redCritterPrefab->addComponent(new MakeInactive(2.0f));
+	m_redCritterPool = std::make_unique<ObjectPool>(mode, m_redCritterPrefab, 100);
 }
 
 void Player::update(GameObject& owner, float delta)
@@ -33,10 +36,18 @@ void Player::update(GameObject& owner, float delta)
 	}
 
 	/*Additional Critter Spawn*/
-	if (IsKeyPressed(KEY_SPACE))
+	if (IsKeyDown(KEY_SPACE))
 	{
-		m_mode.addGameObject(m_redCritterPrefab->clone(owner.getPosition()));
+		auto redCritter = m_redCritterPool->spawn();
+		if (redCritter)
+		{
+			redCritter->setPosition(owner.getPosition());
+			m_mode.addGameObject(redCritter);
+		}
+		
+		//m_mode.addGameObject(m_redCritterPrefab->clone(owner.getPosition()));
 	}
 
 	owner.setPosition(owner.getPosition() + direction * speed * delta);
+	m_redCritterPool->clean();
 }

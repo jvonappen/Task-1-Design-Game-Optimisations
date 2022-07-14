@@ -28,6 +28,7 @@ public:
 	ComponentPtr getComponent(const char* name);
 	bool hasComponent(const char* name);
 	void removeComponent(const char* name);
+	/* ^^^ Could Template all of this ^^^ */
 
 	const glm::vec2& getPosition() const { return m_position; }
 	void setPosition(const glm::vec2& position) { m_position = position; }
@@ -38,10 +39,10 @@ public:
 	float getRotation() const { return m_rotation; }
 	void setRotation(float rotation) { m_rotation = rotation; }
 
-	bool isActive() const { return m_active; }
+	bool isActive() const { return m_active; } /*Flag*/
 	void setActive(bool active) { m_active = active; }
 
-			/* ^^^ Could Template all of this ^^^ */
+			
 
 	std::shared_ptr<GameObject> clone(const glm::vec2& position);
 

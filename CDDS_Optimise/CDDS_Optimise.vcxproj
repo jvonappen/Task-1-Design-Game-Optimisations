@@ -176,6 +176,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InactiveAfter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MakeInactive.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="GameMode.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InactiveAfter.h" />
+    <ClInclude Include="MakeInactive.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="ObjectPool.h" />
