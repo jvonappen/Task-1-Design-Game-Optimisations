@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <memory>
+#include <list>
 
 class PlayMode : public GameMode
 {
@@ -22,5 +23,6 @@ public:
 private:
 	std::vector<GameObjectPtr> m_gameObjects;
 	std::vector<GameObjectPtr> m_removeGameObjects;
+	std::vector<GameObjectPtr> m_newObjectsThisFrame;
 };
 

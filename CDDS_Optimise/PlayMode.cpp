@@ -2,12 +2,13 @@
 #include "raylib.h"
 #include "Game.h"
 #include "Sprite.h"
-#include <algorithm>
 #include "Player.h"
 #include "Collision.h"
 #include "Menu.h"
-#include <raymath.h>
 #include "Movement.h"
+
+#include <algorithm>
+#include <raymath.h>
 
 
 PlayMode::PlayMode()
@@ -65,6 +66,11 @@ void PlayMode::update(float delta)
 	{
 		object->update(delta);
 	}
+	for (auto object : m_newObjectsThisFrame)
+	{
+		m_gameObjects.push_back(object);
+	}
+	m_newObjectsThisFrame.clear();
 
 	auto pred = [&](auto& object)
 	{
@@ -101,13 +107,15 @@ void PlayMode::draw()
 GameObjectPtr PlayMode::createGameObject()
 {
 	auto object = std::make_shared<GameObject>();
-	m_gameObjects.push_back(object);
+	m_newObjectsThisFrame.push_back(object);
+	//m_gameObjects.push_back(object);
 	return object;
 }
 
 void PlayMode::addGameObject(GameObjectPtr object)
 {
-	m_gameObjects.push_back(object);
+	m_newObjectsThisFrame.push_back(object);
+	//m_gameObjects.push_back(object);
 }
 
 void PlayMode::removeGameObject(GameObjectPtr object)
