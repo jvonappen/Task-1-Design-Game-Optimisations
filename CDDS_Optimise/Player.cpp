@@ -41,6 +41,8 @@ void Player::update(GameObject& owner, float delta)
 		auto redCritter = m_redCritterPool->spawn();
 		if (redCritter)
 		{
+			//redCritter->getComponent<MakeInactive>()->resetTime(); /*00:28*/
+			
 			redCritter->setPosition(owner.getPosition());
 			m_mode.addGameObject(redCritter);
 		}
