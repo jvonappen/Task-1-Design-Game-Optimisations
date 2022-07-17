@@ -17,31 +17,30 @@ void GameObject::draw()
 	}
 }
 
-void GameObject::addComponent(Component* component)
-{
-	m_components[component->getName()] = ComponentPtr(component);
-}
+//void GameObject::addComponent(Component* component)
+//{
+//	m_components[component->getName()] = ComponentPtr(component);
+//}
 
-ComponentPtr GameObject::getComponent(const char* name)
-{
-	auto iter = m_components.find(name);
-	if (iter != m_components.end())
-	{
-		return iter->second;
-	}
-		
-	return nullptr;
-}
+//ComponentPtr GameObject::getComponent(const char* name)
+//{
+//	auto iter = m_components.find(name);
+//	if (iter != m_components.end())
+//	{
+//		return iter->second;
+//	}		
+//	return nullptr;
+//}
 
-bool GameObject::hasComponent(const char* name)
-{
-	return m_components.find(name) != m_components.end();
-}
+//bool GameObject::hasComponent(const char* name)
+//{
+//	return m_components.find(name) != m_components.end();
+//}
 
-void GameObject::removeComponent(const char* name)
-{
-	m_components.erase(name);
-}
+//void GameObject::removeComponent(const char* name)
+//{
+//	m_components.erase(name);
+//}
 
 GameObjectPtr GameObject::clone(const glm::vec2& position)
 {

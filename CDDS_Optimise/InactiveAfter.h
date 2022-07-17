@@ -6,7 +6,7 @@ public:
 	InactiveAfter(float delay);
 
 	void update(GameObject& owner, float delta) override;
-	const char* getName() override { return "Inactive"; }
+	//const char* getName() override { return "Inactive"; }
 	Component* clone() override;
 	void reset() { m_time = 0; }
 

@@ -4,6 +4,8 @@
 #include <string>
 #include <memory>
 #include <glm/vec2.hpp>
+#include <typeinfo>
+#include <typeindex>
 
 class GameObject;
 
@@ -12,7 +14,7 @@ class Component
 public:
 	virtual void update(GameObject& owner, float delta) {}
 	virtual void draw(GameObject& owner) {}
-	virtual const char* getName() = 0;
+	//virtual const char* getName() = 0;
 	virtual Component* clone() { return nullptr; }
 	virtual void onCollision(GameObject& owner, GameObject& other) {}
 };
@@ -23,12 +25,37 @@ class GameObject
 public:
 	void update(float delta);
 	void draw();
-													
-	void addComponent(Component* component);
-	ComponentPtr getComponent(const char* name);
-	bool hasComponent(const char* name);
-	void removeComponent(const char* name);
-	/* ^^^ Could Template all of this ^^^ */
+											
+	template<typename T>						 /*02:20*/
+	T& addComponent(T* component)
+	{ 
+		m_components[std::type_index(typeid(T))] = ComponentPtr(component);
+		return *component;
+	}
+
+	template<typename T>
+	std::shared_ptr<T> getComponent()
+	{
+		auto iter = m_components.find(std::type_index(typeid(T)));
+		if (iter != m_components.end())
+		{
+			return std::dynamic_pointer_cast<T>(iter->second);
+		}
+		return nullptr;
+	}
+
+	template<typename T>
+	bool hasComponent()
+	{
+		return m_components.find(std::type_index(typeid(T))) != m_components.end();
+	}
+
+	template<typename T>
+	void removeComponent()
+	{
+		m_components.erase(std::type_index(typeid(T))); /* may need adjustments*/
+	}
+	
 
 	const glm::vec2& getPosition() const { return m_position; }
 	void setPosition(const glm::vec2& position) { m_position = position; }
@@ -53,7 +80,7 @@ private:
 	float m_rotation{0};
 	bool m_active{ true };
 
-	std::unordered_map<std::string, ComponentPtr> m_components;
+	std::unordered_map<std::type_index, ComponentPtr> m_components;
 
 };
 

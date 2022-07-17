@@ -10,7 +10,7 @@ public:
 	Sprite(Texture2D texture);
 	void draw(GameObject& owner) override;
 
-	const char* getName() override { return "Sprite"; }
+	//const char* getName() override { return "Sprite"; }
 
 	Component* clone() override { return new Sprite(*this); }
 
