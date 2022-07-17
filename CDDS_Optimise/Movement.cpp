@@ -1,13 +1,7 @@
 #include "Movement.h"
-#include "PlayMode.h"
-//#include "raylib.h"
-#include <glm/gtx/norm.hpp>
-#include <glm/vec2.hpp>
+#include "raylib.h"
 
-#include <random>
-#include <raymath.h>
-
-Movement::Movement(PlayMode& mode) : m_mode(mode)
+Movement::Movement(float speed) : m_speed(speed)
 {
 
 }
@@ -15,33 +9,28 @@ Movement::Movement(PlayMode& mode) : m_mode(mode)
 void Movement::update(GameObject& owner, float delta)
 {
 
-		float speed = 80;
-		glm::vec2 velocity{ -100 + (rand() % 200), -100 + (rand() % 200) }; /*create a random direction vector for the velocity*/
+	const int MAX_VELOCITY = m_speed;
+	//owner.setPosition(owner.getPosition() + glm::vec2(0, delta * -m_speed));
 
-
-		//direction = Vector2Scale(Vector2Normalize(direction), speed);
-		velocity = glm::normalize(velocity);
-		owner.setPosition(owner.getPosition() + velocity * speed * delta);
-
-	
-
-
-	//if ()
-	//{
-	//	velocity.x -= 1;		/* Left */
-	//}
-	//if (IsKeyDown(KEY_D))
-	//{
-	//	direction.x += 1;		/* Right */
-	//}
-	//if (IsKeyDown(KEY_W))
-	//{
-	//	direction.y -= 1;		/* Up */
-	//}
-	//if (IsKeyDown(KEY_S))
-	//{
-	//	direction.y += 1;		/* Down */
-	//}
-
-
+	if (owner.getPosition().x < 0)
+	{
+		owner.setPosition(owner.getPosition());
+		owner.SetVelocity(glm::vec2(-owner.GetVelocity().x, owner.GetVelocity().y));
+	}
+	if (owner.getPosition().x > GetScreenWidth())
+	{
+		owner.setPosition(owner.getPosition());
+		owner.SetVelocity(glm::vec2(-owner.GetVelocity().x, owner.GetVelocity().y));
+	}
+	/*------------------------------*/
+	if (owner.getPosition().y < 0)
+	{
+		owner.setPosition(owner.getPosition());
+		owner.SetVelocity(glm::vec2(owner.GetVelocity().x, -owner.GetVelocity().y));
+	}
+	if (owner.getPosition().y > GetScreenHeight())
+	{
+		owner.setPosition(owner.getPosition());
+		owner.SetVelocity(glm::vec2(owner.GetVelocity().x, -owner.GetVelocity().y));
+	}
 }

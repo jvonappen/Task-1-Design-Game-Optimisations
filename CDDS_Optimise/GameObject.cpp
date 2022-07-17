@@ -7,6 +7,9 @@ void GameObject::update(float delta)
 	{
 		iter.second->update(*this, delta);
 	}
+
+	m_position.x += m_velocity.x * delta;
+	m_position.y += m_velocity.y * delta;
 }
 
 void GameObject::draw()

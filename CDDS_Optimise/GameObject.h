@@ -69,9 +69,10 @@ public:
 	bool isActive() const { return m_active; } /*Flag*/
 	void setActive(bool active) { m_active = active; }
 
-			
-
 	std::shared_ptr<GameObject> clone(const glm::vec2& position);
+
+	glm::vec2 GetVelocity() { return m_velocity; }
+	void SetVelocity(glm::vec2 velocity) { m_velocity = velocity; }
 
 
 private:
@@ -82,6 +83,7 @@ private:
 
 	std::unordered_map<std::type_index, ComponentPtr> m_components;
 
+	glm::vec2 m_velocity {0, 0};
 };
 
 using GameObjectPtr = std::shared_ptr<GameObject>;

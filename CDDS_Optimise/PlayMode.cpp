@@ -21,15 +21,18 @@ PlayMode::PlayMode()
 
 	auto critter = createGameObject();
 	critter->setPosition(glm::vec2(300, 200));
+	critter->SetVelocity(glm::vec2(80,80));
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
 	critter->addComponent(new Sprite(critterTexture));
 	critter->addComponent(new Collision(20));
-	//critter->addComponent(new Movement(*this));
+	critter->addComponent(new Movement(80.0f));
 
 	auto destroyerV2 = createGameObject();
 	destroyerV2->setPosition(glm::vec2(250, 250));
+	destroyerV2->SetVelocity(glm::vec2(80, 80));
 	auto destroyerV2Texture = Game::instance().resources().loadTexture("res/9.png");
 	destroyerV2->addComponent(new Sprite(destroyerV2Texture));
+	destroyerV2->addComponent(new Movement(80.0f));
 
 	const int CRITTER_COUNT = 50;
 	for (int i = 0; i < CRITTER_COUNT; i++)
@@ -37,6 +40,7 @@ PlayMode::PlayMode()
 
 		auto pos = glm::vec2{ GetRandomValue(0, GetScreenWidth()), GetRandomValue(0, GetScreenHeight()) };
 		auto critterClone = critter->clone(pos);
+		critterClone->SetVelocity(glm::vec2(80, 80));
 		m_gameObjects.push_back(critterClone);
 	}
 
