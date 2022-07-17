@@ -10,8 +10,9 @@ Player::Player(PlayMode& mode) : m_mode(mode)
 {
 	m_redCritterPrefab = std::make_shared<GameObject>();
 	m_redCritterPrefab->addComponent(new Sprite(Game::instance().resources().loadTexture("res/12.png")));
-	m_redCritterPrefab->addComponent(new MakeInactive(2.0f));
+	m_redCritterPrefab->addComponent(new MakeInactive(20.0f));
 	m_redCritterPrefab->addComponent(new Movement(80.0f));
+	
 	m_redCritterPool = std::make_unique<ObjectPool>(mode, m_redCritterPrefab, 1000);
 }
 
@@ -46,6 +47,7 @@ void Player::update(GameObject& owner, float delta)
 			redCritter->getComponent<MakeInactive>()->resetTime(); /*00:28*/
 			
 			redCritter->setPosition(owner.getPosition());
+			redCritter->SetVelocity(glm::vec2(GetRandomValue(30,80), 80));
 			m_mode.addGameObject(redCritter);
 		}
 		
