@@ -74,6 +74,8 @@ public:
 	glm::vec2 GetVelocity() { return m_velocity; }
 	void SetVelocity(glm::vec2 velocity) { m_velocity = velocity; }
 
+	std::unordered_map<std::type_index, ComponentPtr>& components() { return m_components; }
+
 
 private:
 	glm::vec2 m_position{0,0};

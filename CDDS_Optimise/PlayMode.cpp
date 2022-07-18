@@ -6,6 +6,7 @@
 #include "Collision.h"
 #include "Menu.h"
 #include "Movement.h"
+#include "Collision.h"
 
 #include <algorithm>
 #include <raymath.h>
@@ -24,7 +25,7 @@ PlayMode::PlayMode()
 	critter->SetVelocity(glm::vec2(80,80));
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
 	critter->addComponent(new Sprite(critterTexture));
-	critter->addComponent(new Collision(20));
+	//critter->addComponent(new Collision(15));
 	critter->addComponent(new Movement(80.0f));
 
 	auto destroyerV2 = createGameObject();
@@ -51,20 +52,33 @@ PlayMode::PlayMode()
 void PlayMode::update(float delta)
 {
 	
-	///*Collision check*/
+	/*Collision check*/
 	//for (int i = 0; i < m_gameObjects.size(); i++)
 	//{
-	//	if (m_gameObjects[i]->hasComponent("Collision"))				/*newly added*/
+	//	if (m_gameObjects[i]->hasComponent<Collision>())				/*newly added*/
 	//	{
-	//		auto colliderA = m_gameObjects[i]->getComponent("Collision");
+	//		auto collisionA = m_gameObjects[i]->getComponent<Collision>();
 	//		for (int j = i + 1; j < m_gameObjects.size(); j++)
 	//		{
-	//			auto colliderB = m_gameObjects[j]->getComponent("Collision");
+	//			if (m_gameObjects[j]->hasComponent<Collision>())
+	//			{
+	//				auto collisionB = m_gameObjects[j]->getComponent<Collision>();
+	//				if (collisionA->checkCollision(*m_gameObjects[i], *m_gameObjects[j], *collisionB))
+	//				{
+	//					for (auto& pair : m_gameObjects[i]->components())
+	//					{
+	//						pair.second->onCollision(*m_gameObjects[i], *m_gameObjects[j]);
+	//					}
+	//					for (auto& pair : m_gameObjects[j]->components())
+	//					{
+	//						pair.second->onCollision(*m_gameObjects[j], *m_gameObjects[i]);
+	//					}
+	//				}
+	//			}		
 	//		}
 	//	}
-	//
 	//}
-	bool checkCollision(GameObject critter, GameObject & other, Collision & collider); /*newly added*/
+	//bool checkCollision(GameObject critter, GameObject & other, Collision & collider); /*newly added*/
 
 	for (auto object : m_gameObjects)
 	{
@@ -98,7 +112,7 @@ void PlayMode::draw()
 {
 	ClearBackground(RAYWHITE);
 
-	/*Adds the layered effect, where objects lower on the y axis are "infront" of other objects higher on the y axis*/
+	///*Adds the layered effect, where objects lower on the y axis are "infront" of other objects higher on the y axis*/
 	std::sort(m_gameObjects.begin(), m_gameObjects.end(), [](GameObjectPtr& a, GameObjectPtr& b)
 	{
 			return a->getPosition().y < b->getPosition().y;

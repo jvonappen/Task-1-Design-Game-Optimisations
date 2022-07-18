@@ -5,6 +5,7 @@
 #include "Sprite.h"
 #include "MakeInactive.h"
 #include "Movement.h"
+#include "Collision.h"
 
 Player::Player(PlayMode& mode) : m_mode(mode)
 {
@@ -12,6 +13,7 @@ Player::Player(PlayMode& mode) : m_mode(mode)
 	m_redCritterPrefab->addComponent(new Sprite(Game::instance().resources().loadTexture("res/12.png")));
 	m_redCritterPrefab->addComponent(new MakeInactive(20.0f));
 	m_redCritterPrefab->addComponent(new Movement(80.0f));
+	//m_redCritterPrefab->addComponent(new Collision(20));
 	
 	m_redCritterPool = std::make_unique<ObjectPool>(mode, m_redCritterPrefab, 1000);
 }
