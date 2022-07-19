@@ -177,8 +177,6 @@ int main(int argc, char* argv[])
 
         ClearBackground(RAYWHITE);
 
-        //DrawCircleLines(m_position.x, m_position.y, 20, RED);
-
         game.draw();    /*** MY CODE ***/
 
     //    // draw the critters
@@ -192,7 +190,6 @@ int main(int argc, char* argv[])
     //    destroyer.Draw();
 
         DrawFPS(10, 10);
-        //DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
