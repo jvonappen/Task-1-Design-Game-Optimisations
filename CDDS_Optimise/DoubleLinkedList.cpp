@@ -1,3 +1,8 @@
+/*-------------------------------------------------------------------------------------------------------
+This code is only partial, broken, incomplete and unused. This was part of a tutorial, yet the assessment implementation
+was very different and this code was no longer used. However, I have kept it as a reference for use in other code.
+-------------------------------------------------------------------------------------------------------*/
+
 //#include "DoubleLinkedList.h"
 //
 //DoubleLinkedList::DoubleLinkedList()

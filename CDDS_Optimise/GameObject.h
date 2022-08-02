@@ -6,6 +6,7 @@
 #include <glm/vec2.hpp>
 #include <typeinfo>
 #include <typeindex>
+#include "AABB.h"
 
 class GameObject;
 
@@ -26,7 +27,7 @@ public:
 	void update(float delta);
 	void draw();
 											
-	template<typename T>						 /*02:20*/
+	template<typename T>						
 	T& addComponent(T* component)
 	{ 
 		m_components[std::type_index(typeid(T))] = ComponentPtr(component);
@@ -76,6 +77,9 @@ public:
 
 	std::unordered_map<std::type_index, ComponentPtr>& components() { return m_components; }
 
+/*- AABB and Quadtree ---------------------------------------------------------------------------------*/
+	AABB m_bounds;
+/*-----------------------------------------------------------------------------------------------------*/
 
 private:
 	glm::vec2 m_position{0,0};

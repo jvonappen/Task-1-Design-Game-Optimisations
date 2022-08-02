@@ -167,6 +167,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABB.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Critter.cpp" />
     <ClCompile Include="CritterV2.cpp" />
@@ -187,6 +188,7 @@
     <ClCompile Include="TestMode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABB.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Critter.h" />
     <ClInclude Include="CritterV2.h" />

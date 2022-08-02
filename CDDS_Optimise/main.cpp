@@ -12,16 +12,16 @@ int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 800;          /* 800 */
-    int screenHeight = 450;         /* 450 */
+    int screenWidth = 800;          /* Original size = 800 */
+    int screenHeight = 450;         /* Original size = 450 */
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     //SetTargetFPS(60);
+    
     //--------------------------------------------------------------------------------------
-    Game& game = Game::instance();       /*** MY CODE ***/
-    game.load();                         /*** MY CODE ***/
-
+    Game& game = Game::instance();       
+    game.load();                        
     //--------------------------------------------------------------------------------------
 
     //srand(time(NULL));
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
         //----------------------------------------------------------------------------------
 
         float delta = GetFrameTime();
-        game.update(delta); /*** MY CODE ***/
+        game.update(delta); 
 
         //// update the destroyer
         //destroyer.Update(delta);
@@ -177,7 +177,7 @@ int main(int argc, char* argv[])
 
         ClearBackground(RAYWHITE);
 
-        game.draw();    /*** MY CODE ***/
+        game.draw();
 
     //    // draw the critters
     //    for (int i = 0; i < CRITTER_COUNT; i++)
@@ -203,8 +203,8 @@ int main(int argc, char* argv[])
     // De-Initialization
     //--------------------------------------------------------------------------------------   
    
-    game.unload();      /*** MY CODE ***/
-    
+    game.unload();
+ 
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 
