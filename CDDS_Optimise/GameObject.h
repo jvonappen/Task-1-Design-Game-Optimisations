@@ -78,7 +78,7 @@ public:
 	std::unordered_map<std::type_index, ComponentPtr>& components() { return m_components; }
 
 /*- AABB and Quadtree ---------------------------------------------------------------------------------*/
-	AABB m_bounds;
+	//AABB m_bounds;
 /*-----------------------------------------------------------------------------------------------------*/
 
 private:
