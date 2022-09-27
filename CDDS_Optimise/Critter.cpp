@@ -1,6 +1,10 @@
-#include "Critter.h"
 
-
+/*-------------------------------------------------------------------------------------------------------
+NOTE: This is the original code for the critter class. Since adding changes and a heap of refactoring,
+most of this has become obsolete. I have left it as a reference for any future adjustments.
+-------------------------------------------------------------------------------------------------------*/
+//#include "Critter.h"
+// 
 //Critter::Critter()
 //{
 //	m_position = Vector2{ 0, 0 };

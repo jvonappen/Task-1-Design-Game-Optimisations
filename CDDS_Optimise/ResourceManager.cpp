@@ -14,7 +14,7 @@ ResourceManager::~ResourceManager()
 Texture2D ResourceManager::loadTexture(const char* file)
 {
 	std::string key(file);
-	auto iter = m_textures.find(key); /* find is a feature needed in the hash table */
+	auto iter = m_textures.find(key); /* find is needed in the hash table */
 	if (iter != m_textures.end())
 	{	/* Texture already loaded */
 		return iter->second;

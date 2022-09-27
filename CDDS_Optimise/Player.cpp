@@ -5,17 +5,15 @@
 #include "Sprite.h"
 #include "MakeInactive.h"
 #include "Movement.h"
-#include "Collision.h"
 
 Player::Player(PlayMode& mode) : m_mode(mode)
 {
 	m_redCritterPrefab = std::make_shared<GameObject>();
 	m_redCritterPrefab->addComponent(new Sprite(Game::instance().resources().loadTexture("res/12.png")));
-	m_redCritterPrefab->addComponent(new MakeInactive(20.0f));
+	m_redCritterPrefab->addComponent(new MakeInactive(60.0f)); // increased time to allow for all 1500 critters to be on screen before becoming inactive since setting fps to 60. 
 	m_redCritterPrefab->addComponent(new Movement(80.0f));
-	//m_redCritterPrefab->addComponent(new Collision(20));
 	
-	m_redCritterPool = std::make_unique<ObjectPool>(mode, m_redCritterPrefab, 1000);
+	m_redCritterPool = std::make_unique<ObjectPool>(mode, m_redCritterPrefab, 1500);
 }
 
 void Player::update(GameObject& owner, float delta)
@@ -46,14 +44,12 @@ void Player::update(GameObject& owner, float delta)
 		auto redCritter = m_redCritterPool->spawn();
 		if (redCritter)
 		{
-			redCritter->getComponent<MakeInactive>()->resetTime(); /*00:28*/
+			redCritter->getComponent<MakeInactive>()->resetTime();
 			
 			redCritter->setPosition(owner.getPosition());
 			redCritter->SetVelocity(glm::vec2(GetRandomValue(30,80), 80));
 			m_mode.addGameObject(redCritter);
 		}
-		
-		//m_mode.addGameObject(m_redCritterPrefab->clone(owner.getPosition()));
 	}
 
 	owner.setPosition(owner.getPosition() + direction * speed * delta);

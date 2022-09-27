@@ -1,4 +1,8 @@
 
+/*-------------------------------------------------------------------------------------------------------
+NOTE: There is a heap of original code here. Since adding changes and a heap of refactoring,
+most of this has become obsolete. I have left it as a reference for any future adjustments.
+-------------------------------------------------------------------------------------------------------*/
 
 #include "raylib.h"
 #include "raymath.h"
@@ -17,7 +21,7 @@ int main(int argc, char* argv[])
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
-    //SetTargetFPS(60);
+    SetTargetFPS(60);
     
     //--------------------------------------------------------------------------------------
     Game& game = Game::instance();       

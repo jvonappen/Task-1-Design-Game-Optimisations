@@ -11,7 +11,6 @@ public:
 
 	void update(GameObject& owner, float delta) override;
 
-	//const char* getName() override { return "Player"; }
 	Component* clone() override 
 	{
 		return nullptr;

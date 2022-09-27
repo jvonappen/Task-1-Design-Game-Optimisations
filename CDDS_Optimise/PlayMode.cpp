@@ -3,10 +3,8 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Player.h"
-#include "Collision.h"
 #include "Menu.h"
 #include "Movement.h"
-#include "Collision.h"
 
 #include <algorithm>
 #include <raymath.h>
@@ -25,7 +23,6 @@ PlayMode::PlayMode()
 	critter->SetVelocity(glm::vec2(80,80));
 	auto critterTexture = Game::instance().resources().loadTexture("res/10.png");
 	critter->addComponent(new Sprite(critterTexture));
-	//critter->addComponent(new Collision(15));
 	critter->addComponent(new Movement(80.0f));
 
 	auto destroyerV2 = createGameObject();
@@ -38,7 +35,6 @@ PlayMode::PlayMode()
 	const int CRITTER_COUNT = 50;
 	for (int i = 0; i < CRITTER_COUNT; i++)
 	{
-
 		auto pos = glm::vec2{ GetRandomValue(0, GetScreenWidth()), GetRandomValue(0, GetScreenHeight()) };
 		auto critterClone = critter->clone(pos);
 		critterClone->SetVelocity(glm::vec2(80, 80));
@@ -51,35 +47,6 @@ PlayMode::PlayMode()
 
 void PlayMode::update(float delta)
 {
-	
-	/*Collision check*/
-	//for (int i = 0; i < m_gameObjects.size(); i++)
-	//{
-	//	if (m_gameObjects[i]->hasComponent<Collision>())				/*newly added*/
-	//	{
-	//		auto collisionA = m_gameObjects[i]->getComponent<Collision>();
-	//		for (int j = i + 1; j < m_gameObjects.size(); j++)
-	//		{
-	//			if (m_gameObjects[j]->hasComponent<Collision>())
-	//			{
-	//				auto collisionB = m_gameObjects[j]->getComponent<Collision>();
-	//				if (collisionA->checkCollision(*m_gameObjects[i], *m_gameObjects[j], *collisionB))
-	//				{
-	//					for (auto& pair : m_gameObjects[i]->components())
-	//					{
-	//						pair.second->onCollision(*m_gameObjects[i], *m_gameObjects[j]);
-	//					}
-	//					for (auto& pair : m_gameObjects[j]->components())
-	//					{
-	//						pair.second->onCollision(*m_gameObjects[j], *m_gameObjects[i]);
-	//					}
-	//				}
-	//			}		
-	//		}
-	//	}
-	//}
-	//bool checkCollision(GameObject critter, GameObject & other, Collision & collider); /*newly added*/
-
 	for (auto object : m_gameObjects)
 	{
 		object->update(delta);

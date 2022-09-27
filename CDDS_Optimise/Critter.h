@@ -1,6 +1,6 @@
 #pragma once
 /*-------------------------------------------------------------------------------------------------------
-This is the original code for the critter class. Since adding changes and a heap of refactoring,
+NOTE: This is the original code for the critter class. Since adding changes and a heap of refactoring,
 most of this has become obsolete. I have left it as a reference for any future adjustments.
 -------------------------------------------------------------------------------------------------------*/
 

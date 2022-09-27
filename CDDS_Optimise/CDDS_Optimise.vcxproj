@@ -167,13 +167,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AABB.cpp" />
-    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Critter.cpp" />
-    <ClCompile Include="CritterV2.cpp" />
-    <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameMode.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InactiveAfter.cpp" />
     <ClCompile Include="main.cpp" />
@@ -185,14 +180,9 @@
     <ClCompile Include="PlayMode.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="TestMode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h" />
-    <ClInclude Include="Collision.h" />
     <ClInclude Include="Critter.h" />
-    <ClInclude Include="CritterV2.h" />
-    <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMode.h" />
     <ClInclude Include="GameObject.h" />
@@ -205,7 +195,6 @@
     <ClInclude Include="PlayMode.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="TestMode.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

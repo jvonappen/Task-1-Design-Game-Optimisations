@@ -5,7 +5,6 @@ class MakeInactive : public Component
 {
 public:
 	MakeInactive(float delay);
-	//const char* getName() override { return "Inactive"; }
 	void update(GameObject& owner, float delta) override;
 	Component* clone() override;
 

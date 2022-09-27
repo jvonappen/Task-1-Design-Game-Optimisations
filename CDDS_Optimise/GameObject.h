@@ -6,7 +6,6 @@
 #include <glm/vec2.hpp>
 #include <typeinfo>
 #include <typeindex>
-#include "AABB.h"
 
 class GameObject;
 
@@ -15,7 +14,6 @@ class Component
 public:
 	virtual void update(GameObject& owner, float delta) {}
 	virtual void draw(GameObject& owner) {}
-	//virtual const char* getName() = 0;
 	virtual Component* clone() { return nullptr; }
 	virtual void onCollision(GameObject& owner, GameObject& other) {}
 };
@@ -76,10 +74,6 @@ public:
 	void SetVelocity(glm::vec2 velocity) { m_velocity = velocity; }
 
 	std::unordered_map<std::type_index, ComponentPtr>& components() { return m_components; }
-
-/*- AABB and Quadtree ---------------------------------------------------------------------------------*/
-	//AABB m_bounds;
-/*-----------------------------------------------------------------------------------------------------*/
 
 private:
 	glm::vec2 m_position{0,0};
