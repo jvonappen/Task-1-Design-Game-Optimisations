@@ -9,9 +9,6 @@ Movement::Movement(float speed) : m_speed(speed)
 void Movement::update(GameObject& owner, float delta)
 {
 
-	//const int MAX_VELOCITY = m_speed;
-	//owner.setPosition(owner.getPosition() + glm::vec2(0, delta * -m_speed));
-
 	if (owner.getPosition().x < 0)
 	{
 		owner.setPosition(owner.getPosition());

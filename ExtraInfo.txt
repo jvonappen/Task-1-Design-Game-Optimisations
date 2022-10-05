@@ -1,0 +1,57 @@
+--- Task 2: Implement a Double-Linked List ---
+There are two ways you can demonstrate the implementation of your double-linked list.
+Implement an object pool within the CDDS_Optimise program found within the AIE Student Samples solution available on GitHub
+For this application, sorting the list may not be necessary, depending on your object pool implementation.
+
+NOTE: I have created an ObjectPool.h and ObjectPool.cpp. I've used a fixed size pool.
+The GameObject.h, PlayMode.h and Player.h are used as a reference and demonstrate the ObjectPool functions being applied.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--- Task 4: Use Hashing Techniques ---
+For this task, you must demonstrate the use of hashing techniques.
+Implement a resource manager (task 2) within the CDDS_Optimise project that uses a hash table to allow the efficient lookup of loaded resources.
+(You do not need to implement either the hash table or the hash function).
+
+For this task you will modify the CDDS_Optimise program by creating a Resource Manager class that will store loaded resources (i.e., Texture2D objects) within a hash table.
+In this scenario, the key will be the resource filename and the value is the Texture2D object (or a reference to the object).
+
+Each time you request a texture to be loaded, you will ask the Resource Manager for it.
+The Resource Manager will look up the texture in the hash table and return a reference to the texture if it has previously been loaded.
+If it has not been loaded, the Resource Manager will load the texture and store it in the hash table.
+
+NOTE: I have created the ResourceManager.h/.cpp using the outlined key and values.
+Its use is demonstrated in the PlayMode.cpp, where the player, critter and destroyer are first created.
+It is also used in the Player.cpp when creating the redCritterPrefab.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--- Additional Notes ---
+During the implementation of the two tasks I have changed how the game functions.
+Originally the 'Destroyer' would eat and then later release the 'Critters'. The critters would also collide with each other.
+I was attempting to implement a BST and had done a lot of re-factoring during that process.
+I was also attempting to implement other features that were not required for this assessment (such as different game modes and features).
+I was unable to achieve what I had planned and eventually ran out of time.
+
+	What I have done:
+Added basic movement and window edge collisions for the destroyer and the critters.
+Created a 'player' aka 'RedDestroyer' which is used to spawn additional 'RedCritters' to demonstrate the hashing and object pooling techniques.
+The red critters will collide with the window's edge, however, the player will not.
+
+Set the FPS to 60 which caused a few issues visually with the demonstration.
+I had to adjust the de-spawn time of the red critters as they were being removed before the entire object pool had been depleted.
+This is also because with fps set, only a limited amount of red critters could be spawned at a time.
+I wanted to demonstrate this visually with the player unable to spawn more red critters when the pool was empty.
+With the spawn time adjustments the player can see that the fps has not dropped during or after the pool is depleted.
+
+Since the screen will fill with red critters, I recommend moving to the bottom right corner as this gives the best view of the player,
+and it is clear when the pool is empty.
+
+	What could be done:
+Fix the original game mechanics.
+Add a critter counter to make it clear how many are actually on screen without needing to see the fixed size code.
+Implement a BST.
+
+
+
+

@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
     int screenWidth = 800;          /* Original size = 800 */
     int screenHeight = 450;         /* Original size = 450 */
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Jacob.GameOptimisations");
 
     SetTargetFPS(60);
     
